@@ -1,15 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:dartz/dartz.dart';
 
-/// Failure base class
-abstract class Failure extends Equatable {
-  final String message;
-  const Failure(this.message);
-
-  @override
-  List<Object?> get props => [message];
-}
-
 /// User roles
 enum UserRole { client, admin, coach, organizer }
 

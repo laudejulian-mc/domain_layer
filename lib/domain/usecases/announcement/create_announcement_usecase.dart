@@ -1,5 +1,7 @@
 import 'package:dartz/dartz.dart';
-import '../../entities/announcement.dart';
+import 'package:flutter_application_1/core/errors/failure.dart';
+import 'package:flutter_application_1/domain/entities/announcement_entity.dart' show Announcement;
+
 import '../../repositories/announcement_repository.dart';
 
 class GetAnnouncementsUseCase {
@@ -7,7 +9,7 @@ class GetAnnouncementsUseCase {
 
   GetAnnouncementsUseCase(this.repository);
 
-  Future<Either<Exception, List<Announcement>>> call() {
+  Future<Either<Failure, List<Announcement>>> call() {
     return repository.getAnnouncements();
   }
 }

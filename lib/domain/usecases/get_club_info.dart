@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter_application_1/core/errors/failure.dart';
 import '../entities/club_info.dart';
-import '../entities/failure.dart';
 import '../repositories/club_info_repository.dart';
 
 class GetClubInfo {

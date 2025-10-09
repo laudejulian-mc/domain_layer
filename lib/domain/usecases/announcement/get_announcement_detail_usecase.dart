@@ -1,7 +1,9 @@
+import 'package:dartz/dartz.dart';
+
+import '../../../core/errors/failure.dart';
 import '../../entities/announcement_entity.dart';
 import '../../repositories/announcement_repository.dart';
-import '../../entities/either.dart';
-import '../../entities/Failure.dart';
+
 
 class GetAnnouncementDetailUseCase {
   final AnnouncementRepository repository;
@@ -10,4 +12,7 @@ class GetAnnouncementDetailUseCase {
   Future<Either<Failure, AnnouncementEntity>> call(String id) {
     return repository.getAnnouncementDetail(id);
   }
+}
+
+class AnnouncementEntity {
 }

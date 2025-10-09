@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
-import '../entities/user.dart';
-import '../repositories/user_repository.dart';
-import '../failures/failure.dart';
+import 'package:flutter_application_1/core/errors/failure.dart';
+import 'package:flutter_application_1/domain/entities/userrole.dart';
+import 'package:flutter_application_1/domain/repositories/repositoryInterface.dart';
+
 
 class RegisterUseCase {
   final UserRepository repository;
