@@ -10,4 +10,5 @@ abstract class AnnouncementRepository {
   Future<Either<Failure, AnnouncementEntity>> getAnnouncementDetail(String id) async {}
 
   Future<dynamic> sendAnnouncementNotification(AnnouncementEntity announcement) async {}
+
 }
