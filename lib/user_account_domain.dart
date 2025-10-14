@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:dartz/dartz.dart';
 
+
 /// Failure base class
 abstract class Failure extends Equatable {
   final String message;
@@ -52,6 +53,8 @@ abstract class UserRepository {
   Future<Either<Failure, User>> updateUserProfile(User user);
 
   Future<Either<Failure, void>> logoutUser();
+
+  Future<Either<Failure, User>> register(String email, String password, UserRole role);
 }
 
 /// Use cases
