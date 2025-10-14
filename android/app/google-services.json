@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "480868442303",
+    "project_id": "data-layer-laude",
+    "storage_bucket": "data-layer-laude.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480868442303:android:1f2ce81fb5c6a4bbf1660a",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJaFrcSAd2WwuWbQgoVcC_NCt2hJshuQ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
