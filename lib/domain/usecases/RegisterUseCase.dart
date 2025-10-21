@@ -3,7 +3,7 @@ import 'package:hoophub/core/errors/failure.dart';
 import 'package:hoophub/domain/entities/UserEntity.dart';
 import 'package:hoophub/domain/repositories/repositoryInterface.dart' show UserRepository;
 import '../../core/errors/failure.dart' hide Failure;
-import '../entities/Failure.dart' hide Failure;
+
 import '../entities/user.dart';
 
 

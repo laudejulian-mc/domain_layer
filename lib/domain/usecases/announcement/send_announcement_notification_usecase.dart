@@ -3,9 +3,10 @@
 import 'package:firebase_auth/firebase_auth.dart' as fb_auth;
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'package:dartz/dartz.dart' hide Either;
+import 'package:dartz/dartz.dart';
 import 'package:hoophub/core/errors/failure.dart' hide Failure;
-import 'package:hoophub/domain/entities/UserEntity.dart';
+import 'package:hoophub/domain/entities/Failure.dart';
+import 'package:hoophub/domain/entities/userEntity.dart';
 import 'package:hoophub/domain/repositories/repositoryInterface.dart';
 
 class UserRemoteDataSourceImpl implements UserRemoteDataSource {
@@ -53,6 +54,10 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
     final doc = await firestore.collection('users').doc(user.id).get();
     return UserModel.fromJson(doc.data()!);
   }
+}
+
+mixin UserModel {
+  static Future<UserModel> fromJson(Map<String, dynamic> map) async {}
 }
 
 class UserRepositoryImpl implements UserRepository {
@@ -135,5 +140,10 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+  
+  UserModel({required String id, required String name, required String email, required UserRole role, String? photoUrl}) {}
+}
+
+class UserRemoteDataSource {
 }
 
