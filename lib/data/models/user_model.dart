@@ -1,25 +1,13 @@
 import '../../domain/entities/user.dart';
 
 class UserModel extends User {
-  final String id;
-  final String name;
-  final String email;
-  final UserRole role;
-  final String? photoUrl;
-
-  UserModel({
-    required this.id,
-    required this.name,
-    required this.email,
-    required this.role,
-    this.photoUrl,
-  }) : super(
-          id: id,
-          name: name,
-          email: email,
-          role: role,
-          photoUrl: photoUrl,
-        );
+  const UserModel({
+    required super.id,
+    required super.name,
+    required super.email,
+    required super.role,
+    super.photoUrl,
+  });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
