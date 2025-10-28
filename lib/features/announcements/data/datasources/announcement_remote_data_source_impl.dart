@@ -1,34 +1,52 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dartz/dartz.dart';
+import '../../domain/entities/announcement.dart';
+import '../../domain/repositories/announcement_repository.dart';
+import '../datasources/announcement_remote_datasource.dart';
 import '../models/announcement_model.dart';
-import 'announcement_remote_data_source.dart';
+import '../../../../core/error/failure.dart'; // adjust path to match your core folder
 
-class AnnouncementRemoteDataSourceImpl implements AnnouncementRemoteDataSource {
-  final FirebaseFirestore firestore;
+class AnnouncementRepositoryImpl implements AnnouncementRepository {
+  final AnnouncementRemoteDataSource remoteDataSource;
 
-  AnnouncementRemoteDataSourceImpl({required this.firestore});
+  AnnouncementRepositoryImpl({required this.remoteDataSource});
 
   @override
-  Future<List<AnnouncementModel>> getAnnouncements() async {
-    final snapshot = await firestore.collection('announcements').get();
-    return snapshot.docs.map((doc) {
-      final data = doc.data();
-      return AnnouncementModel.fromJson({
-        'id': doc.id,
-        ...data,
-      });
-    }).toList();
+  Future<Either<Failure, List<Announcement>>> getAnnouncements() async {
+    try {
+      final models = await remoteDataSource.getAnnouncements();
+      return Right(models.map((m) => m as Announcement).toList());
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
-  Future<AnnouncementModel> getAnnouncementDetail(String id) async {
-    final doc = await firestore.collection('announcements').doc(id).get();
-    final data = doc.data();
-    if (data == null) throw Exception('Announcement not found');
-    return AnnouncementModel.fromJson({'id': doc.id, ...data});
+  Future<Either<Failure, void>> createAnnouncement(
+      Announcement announcement) async {
+    try {
+      final model = AnnouncementModel(
+        id: announcement.id,
+        title: announcement.title,
+        message: announcement.message,
+        imageUrl: announcement.imageUrl,
+        linkUrl: announcement.linkUrl,
+        createdAt: announcement.createdAt,
+        createdBy: announcement.createdBy,
+      );
+      await remoteDataSource.createAnnouncement(model);
+      return Right(null);
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
-  Future<void> createAnnouncement(AnnouncementModel announcement) async {
-    await firestore.collection('announcements').add(announcement.toJson());
+  Future<Either<Failure, void>> deleteAnnouncement(String id) async {
+    try {
+      await remoteDataSource.deleteAnnouncement(id);
+      return Right(null);
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 }

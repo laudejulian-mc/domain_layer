@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_application_1/core/errors/failure.dart';
-import 'package:flutter_application_1/features/events/domain/entities/event.dart';
-import 'package:flutter_application_1/features/events/domain/repositories/event_repository.dart';
+import 'package:hoophub/core/errors/failure.dart';
+import 'package:hoophub/features/events/domain/repositories/event_repository.dart' show EventRepository;
+
+import '../entities/event.dart';
 
 class CreateEvent {
   final EventRepository repository;

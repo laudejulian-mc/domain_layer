@@ -8,15 +8,9 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
-  // 🔥 Test Firestore connection (optional)
-  await FirebaseFirestore.instance.collection('test').add({
-    'message': 'Hello from Flutter!',
-    'timestamp': DateTime.now().toIso8601String(),
-  });
-
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

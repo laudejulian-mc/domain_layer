@@ -1,7 +1,14 @@
 import 'package:dartz/dartz.dart';
+import 'package:hoophub/core/errors/failure.dart';
+import 'package:hoophub/domain/entities/UserEntity.dart';
+import 'package:hoophub/domain/repositories/repositoryInterface.dart' show UserRepository;
+
+
+import '../../core/errors/failure.dart' hide Failure;
 import '../entities/user.dart';
-import '../repositories/user_repository.dart';
-import '../failures/failure.dart';
+import '../repositories/RepositoryInterface.dart' hide UserRepository;
+
+
 
 class LoginUseCase {
   final UserRepository repository;

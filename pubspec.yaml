@@ -1,25 +1,31 @@
-name: flutter_application_1
-description: "A new Flutter project."
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+name: hoophub
+description: A community & nonprofit sports and hobby club management app.
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
-  sdk: '^3.8.0'
+  sdk: ">=3.3.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  # UI and core packages
-  cupertino_icons: ^1.0.8
-  equatable: ^2.0.3
+  # State management & architecture
+  equatable: ^2.0.5
   dartz: ^0.10.1
 
-  # ✅ Firebase (compatible versions)
+  # ✅ Firebase Core Packages (compatible versions)
   firebase_core: ^3.8.0
-  cloud_firestore: ^5.4.4
   firebase_auth: ^5.7.0
+  cloud_firestore: ^5.4.4
+
+  # (Optional but recommended for later use)
+  firebase_messaging: ^15.0.1   # For push notifications
+  firebase_storage: ^12.2.0     # For profile photo uploads
+
+  # UI package
+  cupertino_icons: ^1.0.8
 
 dev_dependencies:
   flutter_test:

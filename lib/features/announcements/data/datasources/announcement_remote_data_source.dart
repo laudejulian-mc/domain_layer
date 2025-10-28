@@ -2,6 +2,6 @@ import '../models/announcement_model.dart';
 
 abstract class AnnouncementRemoteDataSource {
   Future<List<AnnouncementModel>> getAnnouncements();
-  Future<AnnouncementModel> getAnnouncementDetail(String id);
-  Future<void> createAnnouncement(AnnouncementModel announcement);
+  Future<void> createAnnouncement(AnnouncementModel model);
+  Future<void> deleteAnnouncement(String id);
 }

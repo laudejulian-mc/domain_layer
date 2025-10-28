@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
+import 'package:hoophub/core/errors/failure.dart' show Failure;
 import '../entities/club_info.dart';
-import '../entities/failure.dart';
+
 import '../repositories/club_info_repository.dart';
 
 class GetClubInfo {

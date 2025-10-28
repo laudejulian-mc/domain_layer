@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_application_1/core/errors/failure.dart';
-import 'package:flutter_application_1/features/events/domain/entities/event.dart';
+
+import '../../../../core/errors/failure.dart' show Failure;
+import '../entities/event.dart' show EventEntity, RSVPStatus;
 
 abstract class EventRepository {
   Future<Either<Failure, EventEntity>> createEvent(EventEntity event);
