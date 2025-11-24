@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:hoophub/domain/entities/userEntity.dart';
 import '../entities/user.dart';
 import '../../core/errors/failure.dart';
 

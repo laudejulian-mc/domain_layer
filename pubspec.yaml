@@ -15,10 +15,7 @@ dependencies:
   equatable: ^2.0.5
   dartz: ^0.10.1
 
-  # ✅ Firebase Core Packages (compatible versions)
-  firebase_core: ^3.8.0
-  firebase_auth: ^5.7.0
-  cloud_firestore: ^5.4.4
+
 
   # (Optional but recommended for later use)
   firebase_messaging: ^15.0.1   # For push notifications

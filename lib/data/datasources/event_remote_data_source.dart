@@ -1,19 +1,9 @@
-lib
-├── data
-│   ├── datasources
-│   │   ├── event_remote_data_source.dart
-│   │   └── event_remote_data_source_impl.dart
-│   ├── models
-│   │   ├── event_model.dart
-│   │   └── schedule_model.dart
-│   └── repositories
-│       └── event_repository_impl.dart
-├── domain
-│   ├── entities
-│   │   ├── event.dart
-│   │   └── schedule.dart
-│   ├── repositories
-│   │   └── event_repository.dart
-│   └── usecases
-│       └── event_usecases.dart
-└── main.dart
+import '../../domain/entities/event.dart';
+import '../../domain/entities/schedule.dart';
+
+abstract class EventRemoteDataSource {
+  Future<List<Event>> fetchEvents();
+  Future<Event> fetchEventById(String id);
+  Future<List<Schedule>> fetchSchedules();
+  Future<Schedule> fetchScheduleById(String id);
+}

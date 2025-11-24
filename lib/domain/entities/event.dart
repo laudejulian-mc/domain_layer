@@ -1,19 +1,23 @@
-lib
-├── data
-│   ├── datasources
-│   │   ├── event_remote_data_source.dart
-│   │   └── event_remote_data_source_impl.dart
-│   ├── models
-│   │   ├── event_model.dart
-│   │   └── schedule_model.dart
-│   └── repositories
-│       └── event_repository_impl.dart
-├── domain
-│   ├── entities
-│   │   ├── event.dart
-│   │   └── schedule.dart
-│   ├── repositories
-│   │   └── event_repository.dart
-│   └── usecases
-│       └── event_usecases.dart
-└── main.dart
+import 'package:equatable/equatable.dart';
+import 'schedule.dart';
+
+class Event extends Equatable {
+	final String id;
+	final String title;
+	final String? description;
+	final DateTime startAt;
+	final DateTime? endAt;
+	final List<Schedule>? schedule;
+
+	const Event({
+		required this.id,
+		required this.title,
+		this.description,
+		required this.startAt,
+		this.endAt,
+		this.schedule,
+	});
+
+	@override
+	List<Object?> get props => [id, title, description, startAt, endAt, schedule];
+}

@@ -1,13 +1,14 @@
 import 'package:dartz/dartz.dart';
 import '../../entities/announcement_entity.dart';
 import '../../repositories/announcement_repository.dart';
+import '../../../core/errors/failure.dart';
 
-class GetAnnouncementsUseCase {
+class CreateAnnouncementUseCase {
   final AnnouncementRepository repository;
 
-  GetAnnouncementsUseCase(this.repository);
+  CreateAnnouncementUseCase(this.repository);
 
-  Future call() {
-    return repository.getAnnouncements();
+  Future<Either<Failure, void>> call(Announcement announcement) {
+    return repository.createAnnouncement(announcement);
   }
 }
