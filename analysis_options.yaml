@@ -12,6 +12,7 @@ analyzer:
     unused_import: ignore
     override_on_non_overriding_member: ignore
     file_names: ignore ignore
+    unnecessary_cast: ignore
 include: package:flutter_lints/flutter.yaml
 
 linter:

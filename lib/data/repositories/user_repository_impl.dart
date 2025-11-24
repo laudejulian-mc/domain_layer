@@ -16,7 +16,7 @@ class UserRepositoryImpl implements UserRepository {
       final userModel = await remoteDataSource.getCurrentUser();
       return Right(userModel);
     } catch (e) {
-      return Left(Failure(e.toString()));
+      return Left(SimpleFailure(e.toString()));
     }
   }
 
@@ -26,7 +26,7 @@ class UserRepositoryImpl implements UserRepository {
       final userModel = await remoteDataSource.signInWithEmail(email, password);
       return Right(userModel);
     } catch (e) {
-      return Left(Failure(e.toString()));
+      return Left(SimpleFailure(e.toString()));
     }
   }
 
@@ -43,7 +43,7 @@ class UserRepositoryImpl implements UserRepository {
       final registeredUser = await remoteDataSource.registerUser(userModel, password);
       return Right(registeredUser);
     } catch (e) {
-      return Left(Failure(e.toString()));
+      return Left(SimpleFailure(e.toString()));
     }
   }
 
@@ -70,7 +70,7 @@ class UserRepositoryImpl implements UserRepository {
       final updatedUser = await remoteDataSource.updateProfile(userModel);
       return Right(updatedUser);
     } catch (e) {
-      return Left(Failure(e.toString()));
+      return Left(SimpleFailure(e.toString()));
     }
   }
 
